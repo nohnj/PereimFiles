@@ -8,6 +8,7 @@ from PIL import Image
 
 ext = ["jpg","webp","jpeg"]
 
+directory = Path("C:/Серьёзное дело/Переименовываем/Бубис")
 parent_dir = Path("C:/Серьёзное дело/Переименовываем")
 new_dir_name = "Бубис"
 if not parent_dir.exists():
@@ -24,22 +25,18 @@ for file in os.listdir(parent_dir):
     if file.endswith(ext[0]):
         os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/Бубис/{i}.png')
         print(file)
-        os.remove(fr'{parent_dir}/{file}')
         i += 1
     elif file.endswith(ext[1]):
         os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/Бубис/{i}.png')
         print(file)
-        os.remove(fr'{parent_dir}/{file}')
         i += 1
     elif file.endswith(ext[2]):
         os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/Бубис/{i}.png')
         print(file)
-        os.remove(fr'{parent_dir}/{file}')
         i += 1
     else:
         os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/Бубис/{i}.{os.path.splitext(file)[1][1:]}')
         print(file)
-        os.remove(fr'{parent_dir}/{file}')
         i += 1
 
 shufflee = 0
@@ -50,7 +47,7 @@ if Shuffle.lower == 'yes' or 'y':
         shuffle_ls.append("shuffle"+str(y))
         random.shuffle(shuffle_ls)
     for file in os.listdir(parent_dir):
-        os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/{shuffle_ls[shufflee]}.{os.path.splitext(file)[1][1:]}')
+        os.rename(fr'{parent_dir}/Бубис/{i}.{os.path.splitext(file)[1][1:]}', fr'{parent_dir}/{shuffle_ls[shufflee]}.{os.path.splitext(file)[1][1:]}')
         print(file)
         shufflee += 1
     # shufflee = 0
@@ -62,6 +59,7 @@ if Shuffle.lower == 'yes' or 'y':
     #     os.rename(fr'{parent_dir}/{file}', fr'{parent_dir}/{shuffle_ls[shufflee]}.{os.path.splitext(file)[1][1:]}')
     #     print(file)
     #     shufflee += 1
+    shutil.rmtree(directory)
     print("Thanks for using dis shit yo. Ima like puttd ma soul init")
 elif Shuffle.lower == 'no' or 'n':
     print("GO FUCK YOURSELF")
